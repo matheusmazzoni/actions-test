@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Has kubectl on ubunutu
-        run: kubectl --help
+        run: aws --version
