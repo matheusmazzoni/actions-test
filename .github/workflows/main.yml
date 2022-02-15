@@ -8,5 +8,5 @@ jobs:
   install:
     runs-on: ubuntu-latest
     steps:
-      - name: Has kubectl on ubunutu
-        run: aws --version
+      - name: Has helm on ubunutu
+        run: helm version
