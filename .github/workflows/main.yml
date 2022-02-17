@@ -16,4 +16,9 @@ jobs:
         ports:
           - 9000:9000
     steps:
-      - run: docker run --rm --entrypoint '' minio/mc:edge mc alias set storage http://minio:9000 minio password
+      - run: |
+          curl https://dl.min.io/client/mc/release/linux-amd64/mc \
+            --create-dirs \
+            -o /usr/bin/mc \
+          &&  chmod +x /usr/bin/mc
+          mc alias set storage http://minio:9000 minio password
