@@ -16,8 +16,4 @@ jobs:
         ports:
           - 9000:9000
     steps:
-      - name: Create Minio bucket to tests
-        uses: docker://minio/mc:edge
-        with:
-          entrypoint: ''
-          args: mc alias set storage http://minio:9000 minio password && mc mb storage/files && mc policy set download storage/files
+      - run: docker run --rm --entrypoint '' minio/mc:edge mc alias set storage http://minio:9000 minio password
