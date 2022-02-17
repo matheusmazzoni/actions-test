@@ -19,6 +19,6 @@ jobs:
       - run: |
           curl https://dl.min.io/client/mc/release/linux-amd64/mc \
             --create-dirs \
-            -o /usr/bin/mc \
-          &&  chmod +x /usr/bin/mc
-          mc alias set storage http://minio:9000 minio password
+            -o ./mc \
+          &&  chmod +x ./mc
+          ./mc alias set storage http://minio:9000 minio password
