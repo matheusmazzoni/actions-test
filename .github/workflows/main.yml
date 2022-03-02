@@ -5,8 +5,18 @@ on:
     branches:
       - main
 jobs:
-  install:
+  checks:
+    name: Select Environment
     runs-on: ubuntu-latest
+    outputs:
+      runner: ${{ steps.context.outputs.runner }}
+    steps:
+      - name: Select env based on branches
+        id: context
+        run: echo "::set-output name=runner::ubuntu"
+  install:
+    runs-on: ${{ needs.checks.outputs.runner }}-latest
+    needs: [checks]
     strategy:
       matrix:
         version: [ '8.0' ]
