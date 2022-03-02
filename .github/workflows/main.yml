@@ -7,18 +7,9 @@ on:
 jobs:
   install:
     runs-on: ubuntu-latest
-    services:
-      minio:
-        image: atlastechnologiesteam/minio:latest
-        env:
-          MINIO_ROOT_USER: minio
-          MINIO_ROOT_PASSWORD: password
-        ports:
-          - 9000:9000
+    strategy:
+      matrix:
+        version: [ '8.0' ]
+    container: php:${{ matrix.version }}
     steps:
-      - run: |
-          curl https://dl.min.io/client/mc/release/linux-amd64/mc \
-            --create-dirs \
-            -o ./mc \
-          &&  chmod +x ./mc
-          ./mc alias set storage http://localhost:9000 minio password
+      - run: php --version
