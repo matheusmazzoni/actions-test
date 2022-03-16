@@ -16,6 +16,7 @@ jobs:
       - name: Select env
         id: context
         run: |
+          echo  ${{ github.event.path }}
           if [[ ${{ contains(github.event.path, 'production') }} ]]; then
             echo "::set-output name=context::production"
           else
@@ -26,6 +27,6 @@ jobs:
     needs: [checks]
     defaults:
       run:
-        working-directory: ./configuration/${{ needs.checks.outputs.context }}
+        working-directory: configuration/${{ needs.checks.outputs.context }}
     steps:
       - run: ls
