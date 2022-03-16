@@ -29,4 +29,5 @@ jobs:
       run:
         working-directory: configuration/${{ needs.checks.outputs.context }}
     steps:
-      - run: ls
+      - uses: actions/checkout@v3.0.0
+      - run: cat test.yml
