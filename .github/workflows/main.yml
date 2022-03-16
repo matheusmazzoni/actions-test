@@ -14,6 +14,5 @@ jobs:
       context: ${{ steps.context.outputs.context }}
     steps:
       - name: Select env
-        if: ${{ contains(github.event.paths, 'staging') }}"
-        run: echo "staging"
+        run: echo "${{ github.event }}"
  
