@@ -16,7 +16,7 @@ jobs:
       - name: Select env
         id: context
         run: |
-          echo  ${{ github.event.path }}
+          echo  $GITHUB_EVENT_NAME
           if [[ ${{ contains(github.event.path, 'production') }} ]]; then
             echo "::set-output name=context::production"
           else
