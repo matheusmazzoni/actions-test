@@ -14,5 +14,5 @@ jobs:
       context: ${{ steps.context.outputs.context }}
     steps:
       - name: Select env
-        run: echo "${{ github.event }}"
+        run: echo "${{ toJSON(github.event) }}"
  
