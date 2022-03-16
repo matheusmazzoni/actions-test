@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths: 
-      - 'configurations/*'
+      - 'configurations/**'
 jobs:
   checks:
     name: Select Environment
