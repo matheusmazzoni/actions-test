@@ -13,6 +13,7 @@ jobs:
     outputs:
       prod: ${{ steps.changes.outputs.src }}
     steps:
+      - uses: actions/checkout@v2
       - uses: dorny/paths-filter@v2
         id: changes
         with:
